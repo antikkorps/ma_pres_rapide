@@ -1,206 +1,358 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import HeroText from '../components/HeroText.astro';
+import BookCover from '../components/BookCover.astro';
 ---
 
 <Layout title="Ma Présentation - Livre Interactif">
   <main class="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-x-hidden">
     <!-- Hero Section - Couverture du livre -->
     <section id="cover" class="h-screen flex items-center justify-center relative">
-      <div class="book-container perspective-1000 relative">
-        <div id="book-cover" class="book-cover relative w-80 h-96 mx-auto cursor-pointer transform-style-preserve-3d transition-transform duration-1000 hover:scale-105">
-          <div class="book-front absolute w-full h-full bg-gradient-to-br from-purple-900 to-indigo-900 rounded-lg shadow-2xl border-4 border-purple-700">
-            <img src="/images/cover.jpg" alt="Couverture" class="w-full h-full object-cover rounded-lg opacity-90">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-lg"></div>
-            <div class="absolute bottom-8 left-8 right-8 text-white">
-              <h1 class="text-3xl font-bold mb-2 text-shadow">Mon Univers</h1>
-              <p class="text-lg opacity-90">Développeur • Passionné • Rêveur</p>
-            </div>
-            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2">
-              <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7M12 3v18"></path>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Texte héro avec effet 3D -->
+      <HeroText />
+      
+      <!-- Couverture du livre -->
+      <BookCover />
       
       <!-- Instruction de scroll -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-        <p class="text-purple-300 font-medium mb-2">Scrollez pour découvrir mon univers</p>
-        <div class="w-1 h-8 bg-purple-500 mx-auto rounded-full animate-pulse"></div>
+      <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+        <p class="text-purple-300 font-medium mb-2 text-sm sm:text-base">Scrollez pour découvrir mon univers</p>
+        <div class="w-1 h-6 sm:h-8 bg-purple-500 mx-auto rounded-full animate-pulse"></div>
       </div>
     </section>
 
     <!-- Pages du livre -->
     <div id="book-pages" class="relative">
       <!-- Page 1: Présentation -->
-      <section class="page min-h-screen flex items-center justify-center py-20 px-8">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div class="page-content space-y-6">
-            <div class="page-number text-purple-400 font-mono text-sm">Page 01</div>
-            <h2 class="text-4xl font-bold text-white mb-6">Salut, je suis Franck</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
-              Développeur web passionné, je navigue entre code et créativité. 
-              Bienvenue dans mon univers où la technologie rencontre l'imaginaire, 
-              entre riffs de guitare et mondes fantastiques.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <div class="skill-badge bg-purple-900/80 text-purple-200 px-4 py-2 rounded-full text-sm font-medium border border-purple-700">
-                🎸 Rock
-              </div>
-              <div class="skill-badge bg-indigo-900/80 text-indigo-200 px-4 py-2 rounded-full text-sm font-medium border border-indigo-700">
-                ⚡ Créatif
-              </div>
-              <div class="skill-badge bg-violet-900/80 text-violet-200 px-4 py-2 rounded-full text-sm font-medium border border-violet-700">
-                🌟 Curieux
+      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="page-content space-y-4 sm:space-y-6 order-2 lg:order-1">
+              <div class="page-number text-purple-400 font-mono text-xs sm:text-sm">Page 01</div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">Salut, je suis Franck</h2>
+              <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+                Mais ça vous le savez déjà un peu puisque je suis arrivé en Septembre 2024 en tant que Développeur web. 
+                Bienvenue dans mon univers où la technologie rencontre l'imaginaire, 
+                entre riffs de guitare et mondes fantastiques.
+              </p>
+              <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-6">
+                <div class="skill-badge bg-purple-900/80 text-purple-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-purple-700">
+                  🎸 Rock
+                </div>
+                <div class="skill-badge bg-indigo-900/80 text-indigo-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-indigo-700">
+                  ⚡ Créatif
+                </div>
+                <div class="skill-badge bg-violet-900/80 text-violet-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-violet-700">
+                  🌟 Curieux
+                </div>
               </div>
             </div>
-          </div>
-          <div class="page-illustration">
-            <div class="floating-card bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-700">
-              <div class="w-32 h-32 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span class="text-4xl">🤘</span>
+            <div class="page-illustration order-1 lg:order-2 mb-6 lg:mb-0">
+              <div class="floating-card bg-gray-800/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-700 max-w-sm mx-auto">
+                <div class="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span class="text-2xl sm:text-4xl">🤘</span>
+                </div>
+                <h3 class="text-lg sm:text-xl font-semibold text-center text-white">Hey there!</h3>
+                <p class="text-gray-400 text-center mt-2 text-sm sm:text-base">Développeur Web</p>
               </div>
-              <h3 class="text-xl font-semibold text-center text-white">Hey there!</h3>
-              <p class="text-gray-400 text-center mt-2">Développeur Web</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Page 2: Technologie -->
-      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-gray-900 to-slate-800">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div class="page-illustration order-2 lg:order-1">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
-                <div class="text-3xl mb-2">💻</div>
-                <h4 class="font-semibold text-white">Frontend</h4>
-                <p class="text-sm text-gray-400">React, Vue, Astro</p>
-              </div>
-              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
-                <div class="text-3xl mb-2">🚀</div>
-                <h4 class="font-semibold text-white">Animation</h4>
-                <p class="text-sm text-gray-400">GSAP, CSS3</p>
-              </div>
-              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
-                <div class="text-3xl mb-2">🎨</div>
-                <h4 class="font-semibold text-white">Design</h4>
-                <p class="text-sm text-gray-400">UX/UI moderne</p>
-              </div>
-              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
-                <div class="text-3xl mb-2">⚡</div>
-                <h4 class="font-semibold text-white">Performance</h4>
-                <p class="text-sm text-gray-400">Optimisation web</p>
-              </div>
-            </div>
-          </div>
-          <div class="page-content space-y-6 order-1 lg:order-2">
-            <div class="page-number text-blue-400 font-mono text-sm">Page 02</div>
-            <h2 class="text-4xl font-bold text-white mb-6">Développeur Web</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
-              Passionné par les technologies modernes, je crée des expériences web 
-              qui allient performance et créativité. Chaque projet est une nouvelle 
-              aventure technique à explorer.
-            </p>
-            <ul class="space-y-2 text-gray-300">
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                Interfaces utilisateur interactives
-              </li>
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                Animations et micro-interactions
-              </li>
-              <li class="flex items-center">
-                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                Optimisation et accessibilité
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Page 3: Hobbies sombres -->
-      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div class="page-content space-y-6">
-            <div class="page-number text-purple-400 font-mono text-sm">Page 03</div>
-            <h2 class="text-4xl font-bold text-white mb-6">Mes Passions</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
-              Entre riffs électriques et mondes imaginaires, mes hobbies nourrissent 
-              ma créativité. Chaque passion apporte sa propre énergie à mes projets.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="hobby-item bg-red-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-red-800/50 hover:border-red-600/70 transition-all duration-300">
-                <div class="text-3xl mb-3">🎸</div>
-                <h4 class="font-semibold text-white mb-2">Rock & Metal</h4>
-                <p class="text-sm text-gray-400">Guitares électriques, riffs puissants</p>
-                <div class="mt-2 text-xs text-red-400">• Écoute • Découverte • Passion</div>
-              </div>
-              <div class="hobby-item bg-indigo-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-indigo-800/50 hover:border-indigo-600/70 transition-all duration-300">
-                <div class="text-3xl mb-3">📚</div>
-                <h4 class="font-semibold text-white mb-2">Fantasy & SF</h4>
-                <p class="text-sm text-gray-400">Mondes imaginaires, futurs possibles</p>
-                <div class="mt-2 text-xs text-indigo-400">• Épopées • Technologie • Magie</div>
-              </div>
-              <div class="hobby-item bg-green-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-green-800/50 hover:border-green-600/70 transition-all duration-300">
-                <div class="text-3xl mb-3">🍵</div>
-                <h4 class="font-semibold text-white mb-2">L'Art du Thé</h4>
-                <p class="text-sm text-gray-400">Moments de contemplation, saveurs</p>
-                <div class="mt-2 text-xs text-green-400">• Méditation • Découverte • Zen</div>
-              </div>
-              <div class="hobby-item bg-orange-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-orange-800/50 hover:border-orange-600/70 transition-all duration-300">
-                <div class="text-3xl mb-3">🐱</div>
-                <h4 class="font-semibold text-white mb-2">Mes 4 Chats</h4>
-                <p class="text-sm text-gray-400">Compagnons félins, ronrons thérapie</p>
-                <div class="mt-2 text-xs text-orange-400">• Câlins • Jeux • Complicité</div>
-              </div>
-            </div>
-          </div>
-          <div class="page-illustration">
-            <div class="creative-showcase bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-600">
-              <div class="text-center">
-                <div class="text-6xl mb-4">🌙</div>
-                <h3 class="text-xl font-semibold text-white mb-2">Univers Nocturne</h3>
-                <p class="text-gray-400">Où la créativité prend vie</p>
-                <div class="mt-4 flex justify-center space-x-2">
-                  <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-                  <div class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse delay-75"></div>
-                  <div class="w-2 h-2 bg-violet-500 rounded-full animate-pulse delay-150"></div>
+      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-slate-800">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="page-illustration order-2 lg:order-1">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-lg lg:max-w-none mx-auto">
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2">💻</div>
+                  <h4 class="font-semibold text-white text-sm sm:text-base">Frontend</h4>
+                  <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">Quasar, Vue, Express, Astro, Tailwind</p>
+                </div>
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2">🚀</div>
+                  <h4 class="font-semibold text-white text-sm sm:text-base">Animation</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">GSAP, CSS3</p>
+                </div>
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2">🎨</div>
+                  <h4 class="font-semibold text-white text-sm sm:text-base">Design</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">UX/UI moderne</p>
+                </div>
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2">⚡</div>
+                  <h4 class="font-semibold text-white text-sm sm:text-base">Performance</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">Optimisation web</p>
                 </div>
               </div>
             </div>
+            <div class="page-content space-y-4 sm:space-y-6 order-1 lg:order-2">
+              <div class="page-number text-blue-400 font-mono text-xs sm:text-sm">Page 02</div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">Développeur Web</h2>
+              <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+                Ce que j'aime c'est répondre à des besoins par des expériences web 
+                qui allient performance et créativité. Chaque projet est une nouvelle 
+                aventure technique à explorer. J'aime le challenge et le travail en équipe.
+              </p>
+              <ul class="space-y-2 text-gray-300 text-sm sm:text-base">
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
+                  Interfaces utilisateur interactives
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
+                  Animations et micro-interactions
+                </li>
+                <li class="flex items-center">
+                  <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 flex-shrink-0"></span>
+                  Optimisation et accessibilité
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Page 4: Valeurs & Philosophie -->
-      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-gray-900 to-slate-900">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div class="page-illustration order-2 lg:order-1">
-            <div class="values-circle relative w-80 h-80 mx-auto">
-              <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full animate-pulse opacity-20"></div>
-              <div class="absolute inset-4 bg-gray-800/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-600">
+      <!-- Page 3: Transition - La vie au-delà du code -->
+      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden">
+        <!-- Particules flottantes de transition (masquées sur mobile) -->
+        <div class="floating-particles absolute inset-0 pointer-events-none hidden sm:block">
+          <div class="absolute top-20 left-20 text-cyan-400 text-lg opacity-30 font-mono animate-float">function</div>
+          <div class="absolute top-40 right-32 text-cyan-400 text-lg opacity-30 font-mono animate-float-delayed">< /dev ></div>
+          <div class="absolute bottom-32 left-32 text-cyan-400 text-lg opacity-30 font-mono animate-float-slow">function()</div>
+          <div class="absolute top-32 right-20 text-yellow-400 text-xl sm:text-2xl opacity-40 animate-bounce-slow">🎸</div>
+          <div class="absolute bottom-40 right-40 text-purple-400 text-xl sm:text-2xl opacity-40 animate-bounce-delayed">📚</div>
+          <div class="absolute top-60 left-60 text-green-400 text-xl sm:text-2xl opacity-40 animate-pulse">🍵</div>
+          <div class="absolute bottom-20 left-80 text-orange-400 text-xl sm:text-2xl opacity-40 animate-bounce">🐱</div>
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-2xl sm:text-3xl animate-pulse">→</div>
+          <div class="absolute top-1/3 right-1/3 text-yellow-400 text-lg sm:text-xl opacity-50 animate-sparkle">✨</div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+          <div class="page-number text-cyan-400 font-mono text-xs sm:text-sm mb-6 sm:mb-8">Page 03</div>
+          
+          <!-- Animation de transition du code vers la vie -->
+          <div class="transition-container space-y-8 sm:space-y-12">
+            <!-- Phase 1: Fermeture du code -->
+            <div class="code-phase opacity-100 transform transition-all duration-1000">
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-cyan-400 mb-3 sm:mb-4 font-mono leading-tight">
+                <span class="typing-text">console.log('work_complete');</span>
+              </h2>
+              <div class="text-base sm:text-lg lg:text-xl text-gray-400 font-mono mb-6 sm:mb-8">
+                // Status: Mission accomplie
+              </div>
+              <div class="text-sm sm:text-base lg:text-lg text-gray-500 font-mono">
+                > Fermeture de l'IDE...
+              </div>
+            </div>
+            
+            <!-- Flèche de transformation -->
+            <div class="transform-arrow my-8 sm:my-12">
+              <div class="flex items-center justify-center space-x-2 sm:space-x-4">
+                <div class="w-8 sm:w-16 h-px bg-gradient-to-r from-transparent to-yellow-400"></div>
+                <div class="text-3xl sm:text-4xl lg:text-6xl text-yellow-400 animate-pulse transform-symbol">
+                  ⚡
+                </div>
+                <div class="w-8 sm:w-16 h-px bg-gradient-to-l from-transparent to-yellow-400"></div>
+              </div>
+            </div>
+            
+            <!-- Phase 2: Ouverture vers la vie -->
+            <div class="life-phase">
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent mb-4 sm:mb-6 leading-tight">
+                Mais la vie, c'est bien plus que ça...
+              </h2>
+              <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed mb-6 sm:mb-8 max-w-4xl mx-auto">
+                Quand l'écran s'éteint et que le clavier se tait, 
+                <br class="hidden sm:block">
+                c'est là que commence vraiment l'aventure ! 
+                <br class="hidden sm:block">
+                Entre <span class="text-red-400 font-semibold">riffs de guitare</span>, 
+                <span class="text-indigo-400 font-semibold">pages tournées</span> et 
+                <span class="text-orange-400 font-semibold">ronronnements</span>, 
+                <br class="hidden sm:block">
+                voici ce qui nourrit l'âme du petit dev que je suis.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Animation de découverte -->
+          <div class="discovery-hint mt-12 sm:mt-16">
+            <div class="inline-flex items-center space-x-3 sm:space-x-6 bg-gradient-to-r from-purple-900/50 via-indigo-900/50 to-purple-900/50 px-4 sm:px-8 py-3 sm:py-4 rounded-full border border-purple-700/50 backdrop-blur-sm">
+              <span class="text-purple-300 text-sm sm:text-lg">Go découvrir mes passions</span>
+              <div class="animate-bounce text-purple-400 text-lg sm:text-xl">↓</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 4: Hobbies -->
+      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="page-content space-y-4 sm:space-y-6 order-2 lg:order-1">
+              <div class="page-number text-purple-400 font-mono text-xs sm:text-sm">Page 04</div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">Mes Passions</h2>
+              <p class="text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
+                Entre riffs électriques et mondes imaginaires, mes hobbies nourrissent 
+                ma créativité. Chaque passion apporte sa propre énergie à mes projets.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div class="hobby-item bg-red-900/30 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-lg border border-red-800/50 hover:border-red-600/70 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🎸</div>
+                  <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Rock & Metal</h4>
+                  <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">Guitares électriques, riffs puissants, concerts, festivals, etc.</p>
+                  <div class="mt-2 text-xs text-red-400">• Écoute • Découverte • Passion</div>
+                </div>
+                <div class="hobby-item bg-indigo-900/30 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-lg border border-indigo-800/50 hover:border-indigo-600/70 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">📚</div>
+                  <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Fantasy & SF</h4>
+                  <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">Mondes imaginaires, futurs possibles et réalité alternative === Kiff total</p>
+                  <div class="mt-2 text-xs text-indigo-400">• Épopées • Technologie • Magie</div>
+                </div>
+                <div class="hobby-item bg-green-900/30 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-lg border border-green-800/50 hover:border-green-600/70 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🍵</div>
+                  <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">L'Art du Thé</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">un verre de thé et un livre c'est le bonheur</p>
+                  <div class="mt-2 text-xs text-green-400">• Méditation • Découverte • Zen</div>
+                </div>
+                <div class="hobby-item bg-orange-900/30 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-lg border border-orange-800/50 hover:border-orange-600/70 transition-all duration-300">
+                  <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🐱</div>
+                  <h4 class="font-semibold text-white mb-1 sm:mb-2 text-sm sm:text-base">Mes 4 Chats</h4>
+                  <p class="text-xs sm:text-sm text-gray-400">Compagnons félins, ronrons thérapie</p>
+                  <div class="mt-2 text-xs text-orange-400">• Câlins • Jeux • Complicité</div>
+                </div>
+              </div>
+            </div>
+            <div class="page-illustration order-1 lg:order-2 mb-6 lg:mb-0">
+              <div class="creative-showcase bg-gray-800/80 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-600 max-w-sm mx-auto">
                 <div class="text-center">
-                  <div class="text-4xl mb-2">⚡</div>
-                  <h4 class="font-bold text-white">Ma Philosophie</h4>
-                  <p class="text-sm text-gray-400">Code • Créativité • Authenticité</p>
+                  <div class="text-4xl sm:text-6xl mb-3 sm:mb-4">🌙</div>
+                  <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">Univers Nocturne</h3>
+                  <p class="text-gray-400 text-sm sm:text-base">Où la créativité prend vie</p>
+                  <div class="mt-3 sm:mt-4 flex justify-center space-x-2">
+                    <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                    <div class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse delay-75"></div>
+                    <div class="w-2 h-2 bg-violet-500 rounded-full animate-pulse delay-150"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="page-content space-y-6 order-1 lg:order-2">
-            <div class="page-number text-purple-400 font-mono text-sm">Page 04</div>
-            <h2 class="text-4xl font-bold text-white mb-6">Philosophie & Valeurs</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
-              Allier technique et créativité, c'est ma vision du développement. 
-              Chaque ligne de code peut être une œuvre d'art, chaque projet 
-              une nouvelle mélodie à composer.
-            </p>
+        </div>
+      </section>
+
+      <!-- Page 5: Gourmandise & Humour -->
+      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-amber-900 via-orange-900 to-red-900 relative overflow-hidden">
+        <!-- Particules de nourriture flottantes (masquées sur mobile) -->
+        <div class="food-particles absolute inset-0 pointer-events-none hidden sm:block">
+          <div class="absolute top-20 left-20 text-2xl sm:text-3xl lg:text-4xl opacity-40 animate-bounce-slow">🍰</div>
+          <div class="absolute top-40 right-32 text-xl sm:text-2xl lg:text-3xl opacity-30 animate-float">🧁</div>
+          <div class="absolute bottom-32 left-32 text-xl sm:text-2xl lg:text-3xl opacity-35 animate-float-delayed">🍪</div>
+          <div class="absolute top-32 right-20 text-lg sm:text-xl lg:text-2xl opacity-40 animate-bounce">🍓</div>
+          <div class="absolute bottom-40 right-40 text-xl sm:text-2xl lg:text-3xl opacity-30 animate-sparkle">🍫</div>
+          <div class="absolute top-60 left-60 text-lg sm:text-xl lg:text-2xl opacity-35 animate-pulse">🥧</div>
+          <div class="absolute bottom-20 left-80 text-xl sm:text-2xl lg:text-3xl opacity-40 animate-bounce-delayed">🍎</div>
+          <div class="absolute top-1/3 right-1/4 text-lg sm:text-xl lg:text-2xl opacity-30 animate-float-slow">🍊</div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="page-content space-y-4 sm:space-y-6 order-2 lg:order-1">
+              <div class="page-number text-orange-400 font-mono text-xs sm:text-sm">Page 05</div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+                Un petit secret... 🤫
+              </h2>
+              
+              <div class="confession-box bg-orange-900/30 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-orange-800/50">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-orange-200 mb-3 sm:mb-4">
+                  "Franck mange que des fruits !" 🍎
+                </h3>
+                <p class="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-4">
+                  Ah, cette réputation qui me colle à la peau ! Mes collègues adorent 
+                  me taquiner sur mes supposées habitudes alimentaires "saines"...
+                </p>
+                
+                <div class="truth-reveal bg-red-900/40 p-3 sm:p-4 rounded-lg border border-red-700/50 mb-4">
+                  <h4 class="text-base sm:text-lg lg:text-xl font-bold text-red-300 mb-2">
+                    La vérité vraie : 🍰
+                  </h4>
+                  <p class="text-sm sm:text-base text-gray-300">
+                    Entre nous, j'avoue... Je suis un <span class="text-yellow-400 font-bold">gourmand</span> 
+                    dans l'âme ! Les fruits, c'est bien, mais les <span class="text-orange-400 font-bold">gâteaux</span>, 
+                    les <span class="text-red-400 font-bold">pâtisseries</span> et les 
+                    <span class="text-amber-400 font-bold">chocolats</span>... ça c'est la vraie vie ! 😋
+                  </p>
+                </div>
+                
+                <div class="irony-note text-center">
+                  <p class="text-orange-300 italic text-sm sm:text-base">
+                    "Mais chut... gardons ça entre nous ! 😉"
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="page-illustration order-1 lg:order-2 mb-6 lg:mb-0">
+            <div class="video-showcase bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-orange-600/50">
+              <h3 class="text-xl font-semibold text-orange-300 mb-4 text-center">
+                La preuve en vidéo ! 🎬
+              </h3>
+              
+              <!-- Conteneur responsive pour la vidéo YouTube -->
+              <div class="relative w-full h-0 pb-[56.25%] rounded-lg overflow-hidden shadow-lg">
+                <iframe 
+                  class="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-orange-700/50"
+                  src="https://www.youtube.com/embed/2KtmsSrnp6g?si=hQJZHh6jO8qobeJP" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              
+              <p class="text-center text-gray-400 text-sm mt-4">
+                "Quand on me dit que je mange que des fruits..." 🙄
+              </p>
+              
+              <!-- Effet décoratif -->
+              <div class="mt-4 flex justify-center space-x-2">
+                <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse delay-75"></div>
+                <div class="w-2 h-2 bg-amber-500 rounded-full animate-pulse delay-150"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 6: Valeurs & Philosophie -->
+      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-slate-900">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="page-illustration order-2 lg:order-1">
+              <div class="values-circle relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mx-auto">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full animate-pulse opacity-20"></div>
+                <div class="absolute inset-4 bg-gray-800/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-600">
+                  <div class="text-center">
+                    <div class="text-2xl sm:text-3xl lg:text-4xl mb-2">⚡</div>
+                    <h4 class="font-bold text-white text-sm sm:text-base lg:text-lg">Ma Philosophie</h4>
+                    <p class="text-xs sm:text-sm text-gray-400">Code • Créativité • Authenticité</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="page-content space-y-4 sm:space-y-6 order-1 lg:order-2">
+              <div class="page-number text-purple-400 font-mono text-xs sm:text-sm">Page 06</div>
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">Philosophie & Valeurs</h2>
+              <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+                Allier technique et créativité, c'est ma vision du développement. 
+                Chaque ligne de code peut être une œuvre d'art, chaque projet 
+                une nouvelle mélodie à composer.
+              </p>
             <div class="space-y-4">
               <div class="value-item flex items-center space-x-4">
                 <div class="w-12 h-12 bg-purple-900/50 rounded-full flex items-center justify-center border border-purple-700">
@@ -234,10 +386,441 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
-      <!-- Page finale: Contact -->
+      <!-- Page 7: Jérôme, notre Chef d'Orchestre -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-indigo-900 via-blue-900 to-cyan-900 relative overflow-hidden">
+        <!-- Particules musicales dirigeantes -->
+        <div class="conductor-particles absolute inset-0 pointer-events-none">
+          <div class="absolute top-20 left-20 text-3xl opacity-40 animate-bounce-slow">🎼</div>
+          <div class="absolute top-40 right-32 text-2xl opacity-30 animate-float">♪</div>
+          <div class="absolute bottom-32 left-32 text-3xl opacity-35 animate-float-delayed">🎵</div>
+          <div class="absolute top-32 right-20 text-2xl opacity-40 animate-bounce">♫</div>
+          <div class="absolute bottom-40 right-40 text-3xl opacity-30 animate-sparkle">🎶</div>
+          <div class="absolute top-60 left-60 text-2xl opacity-35 animate-pulse">🎤</div>
+          <div class="absolute bottom-20 left-80 text-3xl opacity-40 animate-bounce-delayed">🎺</div>
+          <div class="absolute top-1/3 right-1/4 text-2xl opacity-30 animate-float-slow">🥁</div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="page-content space-y-6">
+            <div class="page-number text-cyan-400 font-mono text-sm">Page 07</div>
+            <h2 class="text-4xl font-bold text-white mb-6">
+              Jérôme, notre Chef d'Orchestre 🎼
+            </h2>
+            
+            <div class="conductor-intro bg-blue-900/30 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-blue-800/50">
+              <h3 class="text-2xl font-semibold text-blue-200 mb-4">
+                Le Maestro de l'équipe ! 🎩
+              </h3>
+              <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                Chaque équipe a son leader, son guide, son... chef d'orchestre ! 
+                Jérôme, c'est celui qui nous fait jouer en harmonie, même quand 
+                on a tendance à désaccorder nos instruments. 😄
+              </p>
+              
+              <div class="conductor-skills bg-cyan-900/40 p-4 rounded-lg border border-cyan-700/50 mb-4">
+                <h4 class="text-xl font-bold text-cyan-300 mb-2">
+                  Ses super-pouvoirs : 🦸‍♂️
+                </h4>
+                <ul class="text-gray-300 space-y-2">
+                  <li class="flex items-center space-x-2">
+                    <span class="text-yellow-400">🎯</span>
+                    <span>Transformer le chaos en symphonie organisée</span>
+                  </li>
+                  <li class="flex items-center space-x-2">
+                    <span class="text-green-400">🧙‍♂️</span>
+                    <span>Faire apparaître des solutions comme par magie</span>
+                  </li>
+                  <li class="flex items-center space-x-2">
+                    <span class="text-blue-400">🎭</span>
+                    <span>Garder son calme même dans les moments épiques</span>
+                  </li>
+                  <li class="flex items-center space-x-2">
+                    <span class="text-purple-400">☕</span>
+                    <span>Alimenter l'équipe en motivation (et en café)</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="fun-facts">
+                <h4 class="text-lg font-semibold text-blue-300 mb-3">Fun Facts :</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="fact-item bg-indigo-900/30 p-3 rounded-lg border border-indigo-800/50">
+                    <div class="text-xl mb-1">🎵</div>
+                    <p class="text-sm text-gray-300">Dirige notre "partition" quotidienne</p>
+                  </div>
+                  <div class="fact-item bg-blue-900/30 p-3 rounded-lg border border-blue-800/50">
+                    <div class="text-xl mb-1">🎪</div>
+                    <p class="text-sm text-gray-300">Maître du multitasking créatif</p>
+                  </div>
+                  <div class="fact-item bg-cyan-900/30 p-3 rounded-lg border border-cyan-800/50">
+                    <div class="text-xl mb-1">🎨</div>
+                    <p class="text-sm text-gray-300">Visionnaire des projets fous</p>
+                  </div>
+                  <div class="fact-item bg-teal-900/30 p-3 rounded-lg border border-teal-800/50">
+                    <div class="text-xl mb-1">🚀</div>
+                    <p class="text-sm text-gray-300">Propulseur d'idées innovantes</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          
+          <div class="page-illustration order-1 lg:order-2">
+            <div class="conductor-showcase relative">
+              <!-- Image de Jérôme -->
+              <div class="relative group">
+                <img 
+                  src="/images/chefOrchestre.png" 
+                  alt="Jérôme - Notre Chef d'Orchestre" 
+                  class="w-full h-auto rounded-2xl shadow-2xl border-4 border-blue-800/50 transform transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-600/70 bg-gray-900/20 backdrop-blur-sm"
+                >
+                
+                <!-- Overlay musical -->
+                <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <!-- Effet de lueur dirigeante -->
+                <div class="absolute -inset-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 blur-xl"></div>
+              </div>
+              
+              <!-- Éléments décoratifs de chef d'orchestre -->
+              <div class="absolute -top-4 -right-4 w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                <span class="text-white text-sm">🎼</span>
+              </div>
+              
+              <div class="absolute -bottom-4 -left-4 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                <span class="text-white">🎭</span>
+              </div>
+              
+              <div class="absolute top-1/2 -right-6 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center shadow-lg animate-ping">
+                <span class="text-white text-xs">♪</span>
+              </div>
+              
+              <!-- Baguette de chef d'orchestre virtuelle -->
+              <div class="absolute top-1/4 left-1/4 w-1 h-12 bg-gradient-to-b from-yellow-400 to-amber-600 rounded-full transform rotate-45 opacity-70 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"></div>
+            </div>
+            
+            <div class="tribute-note text-center">
+              <div class="bg-gradient-to-r from-blue-900/20 to-cyan-900/20 rounded-lg border border-blue-800/30 p-4">
+                <p class="text-blue-200 font-medium">
+                  🎼 "Sans chef d'orchestre, pas de belle musique !" 🎶
+                  <br>
+                  <span class="text-sm text-gray-400 italic">
+                    Merci Jérôme pour ta direction artistique au quotidien !
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 8: L'Équipe Rock -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="page-content space-y-6">
+            <div class="page-number text-pink-400 font-mono text-sm">Page 08</div>
+            <h2 class="text-4xl font-bold text-white mb-6">L'Équipe Rock 🎸</h2>
+            <p class="text-lg text-gray-300 leading-relaxed">
+              Comme dans un groupe de rock, chaque membre de l'équipe a son rôle unique. 
+              Ensemble, nous formons une formation soudée où l'harmonie naît de nos différences 
+              et où chaque projet devient notre prochain album à succès.
+            </p>
+            
+            <div class="space-y-4">
+              <div class="band-member flex items-center space-x-4">
+                <div class="w-12 h-12 bg-pink-900/50 rounded-full flex items-center justify-center border border-pink-700">
+                  <span class="text-xl">🎤</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Lead Vocals</h4>
+                  <p class="text-sm text-gray-400">Direction artistique et vision</p>
+                </div>
+              </div>
+              
+              <div class="band-member flex items-center space-x-4">
+                <div class="w-12 h-12 bg-purple-900/50 rounded-full flex items-center justify-center border border-purple-700">
+                  <span class="text-xl">🎸</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Lead Guitar</h4>
+                  <p class="text-sm text-gray-400">Innovation et créativité technique</p>
+                </div>
+              </div>
+              
+              <div class="band-member flex items-center space-x-4">
+                <div class="w-12 h-12 bg-indigo-900/50 rounded-full flex items-center justify-center border border-indigo-700">
+                  <span class="text-xl">🥁</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Drums</h4>
+                  <p class="text-sm text-gray-400">Rythme et structure des projets</p>
+                </div>
+              </div>
+              
+              <div class="band-member flex items-center space-x-4">
+                <div class="w-12 h-12 bg-pink-900/50 rounded-full flex items-center justify-center border border-pink-700">
+                  <span class="text-xl">🎹</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Keys & Bass</h4>
+                  <p class="text-sm text-gray-400">Harmonie et cohésion d'ensemble</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 p-4 bg-gradient-to-r from-pink-900/20 to-purple-900/20 rounded-lg border border-pink-800/30">
+              <p class="text-pink-200 font-medium text-center">
+                "Une équipe soudée à qui rien n'est impossible, 
+                <br>pas même sortir un album rock !"
+              </p>
+            </div>
+          </div>
+          
+          <div class="page-illustration order-1 lg:order-2">
+            <div class="band-showcase relative">
+              <!-- Image de l'équipe -->
+              <div class="relative group">
+                <img 
+                  src="/images/ArnaudAndTheComparses.jpg" 
+                  alt="Arnaud And The Comparses - L'équipe rock" 
+                  class="w-full h-auto rounded-2xl shadow-2xl border-4 border-pink-800/50 transform transition-all duration-500 group-hover:scale-105 group-hover:border-pink-600/70"
+                >
+                
+                <!-- Overlay avec effet vinyle -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <!-- Effet de lueur musicale -->
+                <div class="absolute -inset-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 blur-xl"></div>
+              </div>
+              
+              <!-- Éléments décoratifs musicaux -->
+              <div class="absolute -top-4 -right-4 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                <span class="text-white text-sm">♪</span>
+              </div>
+              
+              <div class="absolute -bottom-4 -left-4 w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                <span class="text-white">♫</span>
+              </div>
+              
+              <div class="absolute top-1/2 -right-6 w-6 h-6 bg-indigo-500 rounded-full flex items-center justify-center shadow-lg animate-ping">
+                <span class="text-white text-xs">♬</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 9: Claire, la Virtuose du Twirling Baton -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-pink-900 via-rose-900 to-red-900 relative overflow-hidden">
+        <!-- Particules de twirling magiques -->
+        <div class="twirling-particles absolute inset-0 pointer-events-none">
+          <div class="absolute top-20 left-20 text-3xl opacity-40 animate-spin-slow">🪄</div>
+          <div class="absolute top-40 right-32 text-2xl opacity-30 animate-bounce">✨</div>
+          <div class="absolute bottom-32 left-32 text-3xl opacity-35 animate-float-delayed">🎪</div>
+          <div class="absolute top-32 right-20 text-2xl opacity-40 animate-pulse">🌟</div>
+          <div class="absolute bottom-40 right-40 text-3xl opacity-30 animate-sparkle">💫</div>
+          <div class="absolute top-60 left-60 text-2xl opacity-35 animate-float">🎭</div>
+          <div class="absolute bottom-20 left-80 text-3xl opacity-40 animate-bounce-delayed">🎨</div>
+          <div class="absolute top-1/3 right-1/4 text-2xl opacity-30 animate-float-slow">⭐</div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="page-content space-y-6">
+            <div class="page-number text-rose-400 font-mono text-sm">Page 09</div>
+            <h2 class="text-4xl font-bold text-white mb-6">
+              Claire, la Virtuose du Twirling Baton 🪄
+            </h2>
+            
+            <div class="twirling-intro bg-rose-900/30 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-rose-800/50">
+              <h3 class="text-2xl font-semibold text-rose-200 mb-4">
+                Ma comparse de bureau ! 🌟
+              </h3>
+              <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                Qui a dit qu'on ne pouvait pas allier création e-learning et arts du spectacle ? 
+                Claire nous prouve le contraire chaque jour ! 🎪
+              </p>
+              
+              <div class="twirling-skills bg-pink-900/40 p-4 rounded-lg border border-pink-700/50 mb-4">
+                <h4 class="text-xl font-bold text-pink-300 mb-2">
+                  Ses talents : 🎭
+                </h4>
+                <ul class="text-gray-300 space-y-2">
+                  <li class="flex items-center space-x-2">
+                    <span class="text-yellow-400">🪄</span>
+                    <span>Magie du twirling baton - Level Expert</span>
+                  </li>
+                  <li class="flex items-center space-x-2">
+                    <span class="text-purple-400">💻</span>
+                    <span>Création de formations engageantes et efficaces</span>
+                  </li>
+                  <li class="flex items-center space-x-2">
+                    <span class="text-pink-400">🎪</span>
+                    <span>Performer artistique hors pair</span>
+                  </li>
+                  <li class="flex items-center space-x-2">
+                    <span class="text-rose-400">🌟</span>
+                    <span>Bonne humeur garantie au bureau</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="fun-facts">
+                <h4 class="text-lg font-semibold text-rose-300 mb-3">Le saviez-vous ?</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div class="fact-item bg-rose-900/30 p-3 rounded-lg border border-rose-800/50">
+                    <div class="text-xl mb-1">🎯</div>
+                    <p class="text-sm text-gray-300">Storytelling et créativité niveau expert</p>
+                  </div>
+                  <div class="fact-item bg-pink-900/30 p-3 rounded-lg border border-pink-800/50">
+                    <div class="text-xl mb-1">⚡</div>
+                    <p class="text-sm text-gray-300">Réflexes ultra-rapides en toute circonstance</p>
+                  </div>
+                  <div class="fact-item bg-red-900/30 p-3 rounded-lg border border-red-800/50">
+                    <div class="text-xl mb-1">🎨</div>
+                    <p class="text-sm text-gray-300">Créativité débordante !</p>
+                  </div>
+                  <div class="fact-item bg-rose-900/30 p-3 rounded-lg border border-rose-800/50">
+                    <div class="text-xl mb-1">🚀</div>
+                    <p class="text-sm text-gray-300">Élégance et performance assurées</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="office-dynamic bg-gradient-to-r from-rose-900/20 to-pink-900/20 rounded-lg border border-rose-800/30 p-4">
+              <h4 class="text-lg font-semibold text-rose-300 mb-2">
+                Notre duo de bureau : 🤝
+              </h4>
+              <p class="text-rose-200 text-sm">
+                "Quand la coordination physique du twirling rencontre l'architecture logicielle, 
+                ça donne des projets web et formation d'une fluidité spectaculaire !"
+              </p>
+            </div>
+          </div>
+          
+          <div class="page-illustration order-1 lg:order-2">
+            <div class="twirling-showcase relative">
+              <!-- Image de Claire -->
+              <div class="relative group">
+                <img 
+                  src="/images/Claire.jpg" 
+                  alt="Claire - La Virtuose du Twirling Baton" 
+                  class="w-full h-auto rounded-2xl shadow-2xl border-4 border-rose-800/50 transform transition-all duration-500 group-hover:scale-105 group-hover:border-pink-600/70"
+                >
+                
+                <!-- Overlay artistique -->
+                <div class="absolute inset-0 bg-gradient-to-t from-rose-900/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <!-- Effet de lueur magique -->
+                <div class="absolute -inset-2 bg-gradient-to-r from-rose-600 to-pink-600 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300 blur-xl"></div>
+              </div>
+              
+              <!-- Éléments décoratifs de performance -->
+              <div class="absolute -top-4 -right-4 w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                <span class="text-white text-sm">🪄</span>
+              </div>
+              
+              <div class="absolute -bottom-4 -left-4 w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                <span class="text-white">✨</span>
+              </div>
+              
+              <div class="absolute top-1/2 -right-6 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center shadow-lg animate-ping">
+                <span class="text-white text-xs">🌟</span>
+              </div>
+              
+              <!-- Bâtons virtuels qui tournoient -->
+              <div class="absolute top-1/4 right-1/4 w-1 h-16 bg-gradient-to-b from-yellow-400 to-amber-600 rounded-full transform rotate-45 opacity-70 group-hover:opacity-100 transition-all duration-300 shadow-lg animate-spin-slow"></div>
+              <div class="absolute bottom-1/3 left-1/3 w-1 h-12 bg-gradient-to-b from-pink-400 to-rose-600 rounded-full transform -rotate-12 opacity-60 group-hover:opacity-100 transition-all duration-500 shadow-lg animate-bounce"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 10: Remerciements -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 relative overflow-hidden">
+        <!-- Particules de gratitude -->
+        <div class="gratitude-particles absolute inset-0 pointer-events-none">
+          <div class="absolute top-20 left-20 text-3xl opacity-40 animate-float">💚</div>
+          <div class="absolute top-40 right-32 text-2xl opacity-30 animate-bounce">🙏</div>
+          <div class="absolute bottom-32 left-32 text-3xl opacity-35 animate-float-delayed">✨</div>
+          <div class="absolute top-32 right-20 text-2xl opacity-40 animate-pulse">🤝</div>
+          <div class="absolute bottom-40 right-40 text-3xl opacity-30 animate-sparkle">💙</div>
+          <div class="absolute top-60 left-60 text-2xl opacity-35 animate-bounce-slow">🌟</div>
+          <div class="absolute bottom-20 left-80 text-3xl opacity-40 animate-bounce-delayed">💫</div>
+          <div class="absolute top-1/3 right-1/4 text-2xl opacity-30 animate-float-slow">❤️</div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+          <div class="page-number text-teal-400 font-mono text-sm mb-8">Page 10</div>
+          
+          <div class="gratitude-container space-y-8">
+            <h2 class="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-200 via-teal-200 to-cyan-200 bg-clip-text text-transparent mb-8">
+              Un immense merci !
+            </h2>
+            
+            <div class="heartfelt-message bg-emerald-900/30 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-emerald-800/50 max-w-4xl mx-auto">
+              
+              <div class="discovery-section bg-teal-900/40 p-6 rounded-xl border border-teal-700/50 mb-6">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                  Des tops <span class="text-emerald-400 font-semibold">professionnels</span> qui m'apportent chaque jour de nouvelles choses, 
+                  des collègues <span class="text-teal-400 font-semibold">bienveillants</span> qui m'ont soutenu, 
+                  et m'ont accueilli dans leur équipe.
+                </p>
+              </div>
+              
+              
+              <div class="personal-growth bg-cyan-900/40 p-6 rounded-xl border border-cyan-700/50">
+                <h3 class="text-xl font-semibold text-cyan-200 mb-3">
+                  Ce que vous m'apportez : 🌱
+                </h3>
+                <ul class="text-gray-300 space-y-2 text-left max-w-2xl mx-auto">
+                  <li class="flex items-center space-x-3">
+                    <span class="text-emerald-400">💡</span>
+                    <span>La confiance pour exprimer mes idées</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-teal-400">🚀</span>
+                    <span>L'envie de me dépasser techniquement</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-cyan-400">🤗</span>
+                    <span>Le plaisir de venir travailler chaque matin</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                    <span class="text-emerald-400">🎯</span>
+                    <span>La motivation pour donner le meilleur de moi-même</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="final-gratitude">
+              <div class="bg-gradient-to-r from-emerald-900/20 via-teal-900/20 to-cyan-900/20 rounded-2xl border border-emerald-800/30 p-6 max-w-3xl mx-auto">
+                
+                <p class="text-lg text-gray-400 italic">
+                  Voici le début d'une belle aventure ensemble ! 🌟
+                </p>
+                
+                <div class="signature mt-6">
+                  <p class="text-teal-300 font-semibold text-lg">
+                    Avec toute ma gratitude,
+                  </p>
+                  <p class="text-2xl font-bold text-cyan-300 mt-2">
+                    Franck 💚
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 11 - Finale: Contact -->
       <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-slate-900 to-purple-900">
         <div class="max-w-4xl mx-auto text-center">
-          <div class="page-number text-purple-400 font-mono text-sm mb-8">Page finale</div>
+          <div class="page-number text-purple-400 font-mono text-sm mb-8">Page 11 - Finale</div>
           <h2 class="text-4xl font-bold text-white mb-6">Merci d'avoir exploré mon univers !</h2>
           <p class="text-lg text-gray-300 leading-relaxed mb-8">
             J'espère que ce voyage vous a plu et que nous pourrons échanger 
@@ -259,10 +842,11 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import { gsap } from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   // Animation d'entrée avec effet plus dramatique
   gsap.fromTo('#book-cover', {
@@ -398,11 +982,20 @@ import Layout from '../layouts/Layout.astro';
 
   // Bouton de redémarrage
   document.getElementById('restart-btn')?.addEventListener('click', () => {
-    gsap.to(window, {
-      scrollTo: { y: 0 },
-      duration: 1.5,
-      ease: 'power2.inOut'
-    });
+    // Animation fluide avec GSAP
+    if (typeof gsap !== 'undefined' && gsap.to) {
+      gsap.to(window, {
+        scrollTo: { y: 0 },
+        duration: 1.5,
+        ease: 'power2.inOut'
+      });
+    } else {
+      // Fallback avec smooth scroll natif
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   });
 
   // Animation de la couverture au scroll avec effet plus dramatique
@@ -442,6 +1035,46 @@ import Layout from '../layouts/Layout.astro';
         toggleActions: 'play none none reverse'
       }
     });
+  });
+
+  // Animation des membres du groupe rock
+  const bandMembers = document.querySelectorAll('.band-member');
+  bandMembers.forEach((member, index) => {
+    gsap.fromTo(member, {
+      opacity: 0,
+      x: -50,
+      scale: 0.9
+    }, {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      duration: 0.8,
+      delay: index * 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: member,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  });
+
+  // Animation de l'image de l'équipe
+  gsap.fromTo('.band-showcase img', {
+    opacity: 0,
+    scale: 0.8,
+    rotationY: -15
+  }, {
+    opacity: 1,
+    scale: 1,
+    rotationY: 0,
+    duration: 1.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.band-showcase',
+      start: 'top 70%',
+      toggleActions: 'play none none reverse'
+    }
   });
 </script>
 
@@ -492,5 +1125,134 @@ import Layout from '../layouts/Layout.astro';
   @keyframes glow {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
+  }
+  
+  /* Styles pour la section équipe rock */
+  .band-member:hover {
+    transform: translateX(10px);
+    transition: transform 0.3s ease;
+  }
+  
+  .band-showcase:hover img {
+    filter: sepia(20%) hue-rotate(-10deg) saturate(1.2);
+  }
+  
+  /* Effet vinyle sur l'image */
+  .band-showcase::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .band-showcase:hover::before {
+    opacity: 1;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  /* Animations pour les particules flottantes de transition */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    33% { transform: translateY(-10px) translateX(5px); }
+    66% { transform: translateY(5px) translateX(-5px); }
+  }
+  
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+  }
+  
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounce-slow 4s ease-in-out infinite;
+  }
+  
+  .animate-bounce-delayed {
+    animation: bounce-slow 4s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+  
+  .animate-sparkle {
+    animation: sparkle 3s ease-in-out infinite;
+  }
+  
+  /* Animation pour l'effet de typing */
+  .typing-text {
+    overflow: hidden;
+    border-right: 3px solid #22d3ee;
+    white-space: nowrap;
+    animation: typing 3s steps(30) infinite, blink 1s infinite;
+  }
+  
+  @keyframes typing {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 100%; }
+  }
+  
+  @keyframes blink {
+    0%, 50% { border-color: #22d3ee; }
+    51%, 100% { border-color: transparent; }
+  }
+  
+  /* Animation pour le symbole de transformation */
+  .transform-symbol {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      transform: scale(1);
+      text-shadow: 0 0 10px #facc15;
+    }
+    50% { 
+      transform: scale(1.1);
+      text-shadow: 0 0 20px #facc15, 0 0 30px #facc15;
+    }
+  }
+  
+  /* Animation spin lente pour les bâtons de twirling */
+  .animate-spin-slow {
+    animation: spin-slow 4s linear infinite;
+  }
+  
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 </style>

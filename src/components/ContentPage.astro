@@ -1,0 +1,101 @@
+---
+export interface Props {
+  pageNumber: string;
+  title: string;
+  backgroundColor?: string;
+  textColor?: string;
+  accentColor?: string;
+}
+
+const { 
+  pageNumber, 
+  title, 
+  backgroundColor = 'bg-gradient-to-br from-slate-900 to-gray-900',
+  textColor = 'text-white',
+  accentColor = 'text-purple-400'
+} = Astro.props;
+---
+
+<section class={`page min-h-screen flex items-center justify-center py-20 px-8 ${backgroundColor}`}>
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <div class="page-content space-y-6">
+      <div class={`page-number ${accentColor} font-mono text-sm`}>{pageNumber}</div>
+      <h2 class={`text-4xl font-bold ${textColor} mb-6`}>{title}</h2>
+      <slot name="content" />
+    </div>
+    <div class="page-illustration">
+      <slot name="illustration" />
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animation des pages au scroll
+  const pages = document.querySelectorAll('.page');
+  
+  pages.forEach((page, index) => {
+    gsap.fromTo(page, {
+      opacity: 0,
+      y: 100,
+      rotationX: 15
+    }, {
+      opacity: 1,
+      y: 0,
+      rotationX: 0,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: page,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    // Animation des éléments de la page
+    const pageContent = page.querySelector('.page-content');
+    const pageIllustration = page.querySelector('.page-illustration');
+    
+    if (pageContent) {
+      gsap.fromTo(pageContent.children, {
+        opacity: 0,
+        x: -50
+      }, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: pageContent,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    }
+    
+    if (pageIllustration) {
+      gsap.fromTo(pageIllustration, {
+        opacity: 0,
+        scale: 0.8,
+        rotationY: 30
+      }, {
+        opacity: 1,
+        scale: 1,
+        rotationY: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: pageIllustration,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    }
+  });
+</script> 

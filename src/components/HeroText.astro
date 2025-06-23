@@ -1,0 +1,359 @@
+---
+// Composant texte héro style années 70 avec effet de profondeur vintage
+---
+
+<div class="retro-hero">
+  <div class="text-stack">
+    <!-- Couches de fond vers avant -->
+    <div class="text-layer layer-4">
+      <span class="word-1">HELLO</span>
+      <span class="word-2">MOI C'EST</span>
+      <span class="word-3">FRANCK</span>
+    </div>
+    <div class="text-layer layer-3">
+      <span class="word-1">HELLO</span>
+      <span class="word-2">MOI C'EST</span>
+      <span class="word-3">FRANCK</span>
+    </div>
+    <div class="text-layer layer-2">
+      <span class="word-1">HELLO</span>
+      <span class="word-2">MOI C'EST</span>
+      <span class="word-3">FRANCK</span>
+    </div>
+    <div class="text-layer layer-1">
+      <span class="word-1">HELLO</span>
+      <span class="word-2">MOI C'EST</span>
+      <span class="word-3">FRANCK</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .retro-hero {
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    z-index: 15;
+    pointer-events: all;
+    cursor: pointer;
+    perspective: 1000px;
+    width: 90vw;
+    max-width: 500px;
+  }
+
+  .text-stack {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.85;
+    transition: transform 0.3s ease-out;
+    transform-style: preserve-3d;
+  }
+
+  /* Animation au hover - mouvement 3D */
+  .retro-hero:hover .text-stack {
+    transform: translateZ(50px) rotateX(-5deg) rotateY(3deg);
+  }
+
+  .text-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-out;
+  }
+
+  .text-layer span {
+    display: block;
+    font-size: clamp(2rem, 12vw, 6rem);
+    margin: 0.05em 0;
+    border-radius: 12px;
+    padding: 0.05em 0.15em;
+    line-height: 0.9;
+  }
+
+  /* Couche la plus arrière - violet foncé */
+  .layer-4 {
+    transform: translateZ(-30px) translateX(12px) translateY(12px);
+    z-index: 1;
+  }
+
+  .layer-4 .word-1,
+  .layer-4 .word-2,
+  .layer-4 .word-3 {
+    color: #4c1d95;
+    text-shadow: 2px 2px 0px #2e1065;
+  }
+
+  .layer-4 .word-2 {
+    font-size: clamp(1.5rem, 9vw, 4.5rem);
+    margin-left: clamp(1rem, 8vw, 3rem);
+  }
+
+  .layer-4 .word-3 {
+    margin-left: clamp(0.5rem, 4vw, 1rem);
+  }
+
+  /* Couche 3 - violet moyen */
+  .layer-3 {
+    transform: translateZ(-20px) translateX(8px) translateY(8px);
+    z-index: 2;
+  }
+
+  .layer-3 .word-1,
+  .layer-3 .word-2,
+  .layer-3 .word-3 {
+    color: #7c3aed;
+    text-shadow: 2px 2px 0px #5b21b6;
+  }
+
+  .layer-3 .word-2 {
+    font-size: clamp(1.5rem, 9vw, 4.5rem);
+    margin-left: clamp(1rem, 8vw, 3rem);
+  }
+
+  .layer-3 .word-3 {
+    margin-left: clamp(0.5rem, 4vw, 1rem);
+  }
+
+  /* Couche 2 - orange/rouge */
+  .layer-2 {
+    transform: translateZ(-10px) translateX(4px) translateY(4px);
+    z-index: 3;
+  }
+
+  .layer-2 .word-1,
+  .layer-2 .word-2,
+  .layer-2 .word-3 {
+    color: #f97316;
+    text-shadow: 2px 2px 0px #ea580c;
+  }
+
+  .layer-2 .word-2 {
+    font-size: clamp(1.5rem, 9vw, 4.5rem);
+    margin-left: clamp(1rem, 8vw, 3rem);
+  }
+
+  .layer-2 .word-3 {
+    margin-left: clamp(0.5rem, 4vw, 1rem);
+  }
+
+  /* Couche avant - jaune/blanc */
+  .layer-1 {
+    transform: translateZ(0px);
+    z-index: 4;
+  }
+
+  .layer-1 .word-1,
+  .layer-1 .word-2,
+  .layer-1 .word-3 {
+    color: #fbbf24;
+    text-shadow: 
+      2px 2px 0px #f59e0b,
+      -1px -1px 0px #ffffff,
+      3px 3px 5px rgba(0,0,0,0.3);
+  }
+
+  .layer-1 .word-2 {
+    font-size: clamp(1.5rem, 9vw, 4.5rem);
+    margin-left: clamp(1rem, 8vw, 3rem);
+  }
+
+  .layer-1 .word-3 {
+    margin-left: clamp(0.5rem, 4vw, 1rem);
+  }
+
+  /* Animation des couches au hover */
+  .retro-hero:hover .layer-4 {
+    transform: translateZ(-40px) translateX(16px) translateY(16px) rotateX(-2deg);
+  }
+
+  .retro-hero:hover .layer-3 {
+    transform: translateZ(-25px) translateX(10px) translateY(10px) rotateX(-1deg);
+  }
+
+  .retro-hero:hover .layer-2 {
+    transform: translateZ(-12px) translateX(6px) translateY(6px);
+  }
+
+  .retro-hero:hover .layer-1 {
+    transform: translateZ(20px) rotateX(1deg);
+  }
+
+  /* Animation d'entrée rétro */
+  .text-layer {
+    animation: retroEnter 2s ease-out forwards;
+  }
+
+  .layer-1 { animation-delay: 0s; }
+  .layer-2 { animation-delay: 0.1s; }
+  .layer-3 { animation-delay: 0.2s; }
+  .layer-4 { animation-delay: 0.3s; }
+
+  @keyframes retroEnter {
+    0% {
+      opacity: 0;
+      transform: translateZ(-200px) rotateY(45deg) scale(0.5);
+      filter: blur(10px);
+    }
+    60% {
+      opacity: 0.8;
+      transform: translateZ(-50px) rotateY(10deg) scale(1.1);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+
+  /* Effet de pulsation vintage */
+  .text-layer span {
+    animation: retroPulse 4s ease-in-out infinite;
+  }
+
+  .word-1 { animation-delay: 0s; }
+  .word-2 { animation-delay: 0.5s; }
+  .word-3 { animation-delay: 1s; }
+
+  @keyframes retroPulse {
+    0%, 100% { 
+      transform: scale(1);
+      filter: saturate(1);
+    }
+    50% { 
+      transform: scale(1.02);
+      filter: saturate(1.2);
+    }
+  }
+
+  /* Mobile First Responsive Design */
+  
+  /* Ajustements pour tablet et plus */
+  @media (min-width: 768px) {
+    .retro-hero {
+      top: 12%;
+      left: 8%;
+      max-width: 600px;
+    }
+  }
+  
+  /* Ajustements pour desktop */
+  @media (min-width: 1024px) {
+    .retro-hero {
+      top: 15%;
+      left: 12%;
+      max-width: 700px;
+    }
+    
+    .text-layer span {
+      font-size: clamp(3rem, 8vw, 7rem);
+    }
+    
+    .layer-1 .word-2,
+    .layer-2 .word-2,
+    .layer-3 .word-2,
+    .layer-4 .word-2 {
+      font-size: clamp(2.2rem, 6vw, 5.5rem);
+    }
+  }
+  
+  /* Ajustements pour très grands écrans */
+  @media (min-width: 1440px) {
+    .retro-hero {
+      left: 15%;
+      max-width: 800px;
+    }
+  }
+
+  /* Effet de rebond au clic */
+  .retro-hero:active .text-stack {
+    transform: translateZ(30px) rotateX(-8deg) rotateY(5deg) scale(0.98);
+    transition: transform 0.1s ease-out;
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  
+  // Animation d'entrée séquentielle des couches
+  gsap.timeline()
+    .fromTo('.layer-4', {
+      opacity: 0,
+      z: -300,
+      rotationY: 90,
+      scale: 0.3
+    }, {
+      opacity: 1,
+      z: -30,
+      rotationY: 0,
+      scale: 1,
+      duration: 1,
+      ease: 'power3.out',
+      delay: 0.5
+    })
+    .fromTo('.layer-3', {
+      opacity: 0,
+      z: -250,
+      rotationY: 70,
+      scale: 0.4
+    }, {
+      opacity: 1,
+      z: -20,
+      rotationY: 0,
+      scale: 1,
+      duration: 0.8,
+      ease: 'power3.out'
+    }, '-=0.7')
+    .fromTo('.layer-2', {
+      opacity: 0,
+      z: -200,
+      rotationY: 50,
+      scale: 0.6
+    }, {
+      opacity: 1,
+      z: -10,
+      rotationY: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.6')
+    .fromTo('.layer-1', {
+      opacity: 0,
+      z: -150,
+      rotationY: 30,
+      scale: 0.8
+    }, {
+      opacity: 1,
+      z: 0,
+      rotationY: 0,
+      scale: 1,
+      duration: 0.4,
+      ease: 'power3.out'
+    }, '-=0.4');
+
+  // Effet de ondulation au hover
+  const hero = document.querySelector('.retro-hero');
+  
+  hero?.addEventListener('mouseenter', () => {
+    gsap.to('.text-layer', {
+      duration: 0.3,
+      stagger: 0.05,
+      ease: 'power2.out',
+      transformOrigin: 'center center'
+    });
+  });
+
+  // Effet de rebond occasionnel
+  setInterval(() => {
+    if (Math.random() > 0.85) {
+      gsap.to('.text-stack', {
+        y: -10,
+        duration: 0.2,
+        yoyo: true,
+        repeat: 1,
+        ease: 'power2.inOut'
+      });
+    }
+  }, 4000);
+</script> 
