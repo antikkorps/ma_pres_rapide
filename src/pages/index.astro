@@ -1,11 +1,496 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Ma Présentation - Livre Interactif">
+  <main class="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-x-hidden">
+    <!-- Hero Section - Couverture du livre -->
+    <section id="cover" class="h-screen flex items-center justify-center relative">
+      <div class="book-container perspective-1000 relative">
+        <div id="book-cover" class="book-cover relative w-80 h-96 mx-auto cursor-pointer transform-style-preserve-3d transition-transform duration-1000 hover:scale-105">
+          <div class="book-front absolute w-full h-full bg-gradient-to-br from-purple-900 to-indigo-900 rounded-lg shadow-2xl border-4 border-purple-700">
+            <img src="/images/cover.jpg" alt="Couverture" class="w-full h-full object-cover rounded-lg opacity-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-lg"></div>
+            <div class="absolute bottom-8 left-8 right-8 text-white">
+              <h1 class="text-3xl font-bold mb-2 text-shadow">Mon Univers</h1>
+              <p class="text-lg opacity-90">Développeur • Passionné • Rêveur</p>
+            </div>
+            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2">
+              <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7M12 3v18"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Instruction de scroll -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+        <p class="text-purple-300 font-medium mb-2">Scrollez pour découvrir mon univers</p>
+        <div class="w-1 h-8 bg-purple-500 mx-auto rounded-full animate-pulse"></div>
+      </div>
+    </section>
+
+    <!-- Pages du livre -->
+    <div id="book-pages" class="relative">
+      <!-- Page 1: Présentation -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="page-content space-y-6">
+            <div class="page-number text-purple-400 font-mono text-sm">Page 01</div>
+            <h2 class="text-4xl font-bold text-white mb-6">Salut, je suis Franck</h2>
+            <p class="text-lg text-gray-300 leading-relaxed">
+              Développeur web passionné, je navigue entre code et créativité. 
+              Bienvenue dans mon univers où la technologie rencontre l'imaginaire, 
+              entre riffs de guitare et mondes fantastiques.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <div class="skill-badge bg-purple-900/80 text-purple-200 px-4 py-2 rounded-full text-sm font-medium border border-purple-700">
+                🎸 Rock
+              </div>
+              <div class="skill-badge bg-indigo-900/80 text-indigo-200 px-4 py-2 rounded-full text-sm font-medium border border-indigo-700">
+                ⚡ Créatif
+              </div>
+              <div class="skill-badge bg-violet-900/80 text-violet-200 px-4 py-2 rounded-full text-sm font-medium border border-violet-700">
+                🌟 Curieux
+              </div>
+            </div>
+          </div>
+          <div class="page-illustration">
+            <div class="floating-card bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-700">
+              <div class="w-32 h-32 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span class="text-4xl">🤘</span>
+              </div>
+              <h3 class="text-xl font-semibold text-center text-white">Hey there!</h3>
+              <p class="text-gray-400 text-center mt-2">Développeur Web</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 2: Technologie -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-gray-900 to-slate-800">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="page-illustration order-2 lg:order-1">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
+                <div class="text-3xl mb-2">💻</div>
+                <h4 class="font-semibold text-white">Frontend</h4>
+                <p class="text-sm text-gray-400">React, Vue, Astro</p>
+              </div>
+              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
+                <div class="text-3xl mb-2">🚀</div>
+                <h4 class="font-semibold text-white">Animation</h4>
+                <p class="text-sm text-gray-400">GSAP, CSS3</p>
+              </div>
+              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
+                <div class="text-3xl mb-2">🎨</div>
+                <h4 class="font-semibold text-white">Design</h4>
+                <p class="text-sm text-gray-400">UX/UI moderne</p>
+              </div>
+              <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-600">
+                <div class="text-3xl mb-2">⚡</div>
+                <h4 class="font-semibold text-white">Performance</h4>
+                <p class="text-sm text-gray-400">Optimisation web</p>
+              </div>
+            </div>
+          </div>
+          <div class="page-content space-y-6 order-1 lg:order-2">
+            <div class="page-number text-blue-400 font-mono text-sm">Page 02</div>
+            <h2 class="text-4xl font-bold text-white mb-6">Développeur Web</h2>
+            <p class="text-lg text-gray-300 leading-relaxed">
+              Passionné par les technologies modernes, je crée des expériences web 
+              qui allient performance et créativité. Chaque projet est une nouvelle 
+              aventure technique à explorer.
+            </p>
+            <ul class="space-y-2 text-gray-300">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                Interfaces utilisateur interactives
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                Animations et micro-interactions
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                Optimisation et accessibilité
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 3: Hobbies sombres -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="page-content space-y-6">
+            <div class="page-number text-purple-400 font-mono text-sm">Page 03</div>
+            <h2 class="text-4xl font-bold text-white mb-6">Mes Passions</h2>
+            <p class="text-lg text-gray-300 leading-relaxed">
+              Entre riffs électriques et mondes imaginaires, mes hobbies nourrissent 
+              ma créativité. Chaque passion apporte sa propre énergie à mes projets.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="hobby-item bg-red-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-red-800/50 hover:border-red-600/70 transition-all duration-300">
+                <div class="text-3xl mb-3">🎸</div>
+                <h4 class="font-semibold text-white mb-2">Rock & Metal</h4>
+                <p class="text-sm text-gray-400">Guitares électriques, riffs puissants</p>
+                <div class="mt-2 text-xs text-red-400">• Écoute • Découverte • Passion</div>
+              </div>
+              <div class="hobby-item bg-indigo-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-indigo-800/50 hover:border-indigo-600/70 transition-all duration-300">
+                <div class="text-3xl mb-3">📚</div>
+                <h4 class="font-semibold text-white mb-2">Fantasy & SF</h4>
+                <p class="text-sm text-gray-400">Mondes imaginaires, futurs possibles</p>
+                <div class="mt-2 text-xs text-indigo-400">• Épopées • Technologie • Magie</div>
+              </div>
+              <div class="hobby-item bg-green-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-green-800/50 hover:border-green-600/70 transition-all duration-300">
+                <div class="text-3xl mb-3">🍵</div>
+                <h4 class="font-semibold text-white mb-2">L'Art du Thé</h4>
+                <p class="text-sm text-gray-400">Moments de contemplation, saveurs</p>
+                <div class="mt-2 text-xs text-green-400">• Méditation • Découverte • Zen</div>
+              </div>
+              <div class="hobby-item bg-orange-900/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-orange-800/50 hover:border-orange-600/70 transition-all duration-300">
+                <div class="text-3xl mb-3">🐱</div>
+                <h4 class="font-semibold text-white mb-2">Mes 4 Chats</h4>
+                <p class="text-sm text-gray-400">Compagnons félins, ronrons thérapie</p>
+                <div class="mt-2 text-xs text-orange-400">• Câlins • Jeux • Complicité</div>
+              </div>
+            </div>
+          </div>
+          <div class="page-illustration">
+            <div class="creative-showcase bg-gray-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-600">
+              <div class="text-center">
+                <div class="text-6xl mb-4">🌙</div>
+                <h3 class="text-xl font-semibold text-white mb-2">Univers Nocturne</h3>
+                <p class="text-gray-400">Où la créativité prend vie</p>
+                <div class="mt-4 flex justify-center space-x-2">
+                  <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                  <div class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse delay-75"></div>
+                  <div class="w-2 h-2 bg-violet-500 rounded-full animate-pulse delay-150"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 4: Valeurs & Philosophie -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-gray-900 to-slate-900">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="page-illustration order-2 lg:order-1">
+            <div class="values-circle relative w-80 h-80 mx-auto">
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full animate-pulse opacity-20"></div>
+              <div class="absolute inset-4 bg-gray-800/90 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-600">
+                <div class="text-center">
+                  <div class="text-4xl mb-2">⚡</div>
+                  <h4 class="font-bold text-white">Ma Philosophie</h4>
+                  <p class="text-sm text-gray-400">Code • Créativité • Authenticité</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-content space-y-6 order-1 lg:order-2">
+            <div class="page-number text-purple-400 font-mono text-sm">Page 04</div>
+            <h2 class="text-4xl font-bold text-white mb-6">Philosophie & Valeurs</h2>
+            <p class="text-lg text-gray-300 leading-relaxed">
+              Allier technique et créativité, c'est ma vision du développement. 
+              Chaque ligne de code peut être une œuvre d'art, chaque projet 
+              une nouvelle mélodie à composer.
+            </p>
+            <div class="space-y-4">
+              <div class="value-item flex items-center space-x-4">
+                <div class="w-12 h-12 bg-purple-900/50 rounded-full flex items-center justify-center border border-purple-700">
+                  <span class="text-xl">🚀</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Innovation</h4>
+                  <p class="text-sm text-gray-400">Repousser les limites du possible</p>
+                </div>
+              </div>
+              <div class="value-item flex items-center space-x-4">
+                <div class="w-12 h-12 bg-indigo-900/50 rounded-full flex items-center justify-center border border-indigo-700">
+                  <span class="text-xl">🤝</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Collaboration</h4>
+                  <p class="text-sm text-gray-400">L'équipe comme une formation musicale</p>
+                </div>
+              </div>
+              <div class="value-item flex items-center space-x-4">
+                <div class="w-12 h-12 bg-violet-900/50 rounded-full flex items-center justify-center border border-violet-700">
+                  <span class="text-xl">🎨</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Créativité</h4>
+                  <p class="text-sm text-gray-400">Transformer l'ordinaire en extraordinaire</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page finale: Contact -->
+      <section class="page min-h-screen flex items-center justify-center py-20 px-8 bg-gradient-to-br from-slate-900 to-purple-900">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="page-number text-purple-400 font-mono text-sm mb-8">Page finale</div>
+          <h2 class="text-4xl font-bold text-white mb-6">Merci d'avoir exploré mon univers !</h2>
+          <p class="text-lg text-gray-300 leading-relaxed mb-8">
+            J'espère que ce voyage vous a plu et que nous pourrons échanger 
+            sur nos passions communes : code, rock, fantasy ou... chats ! 🐱
+          </p>
+          
+          <div class="final-animation">
+            <div class="text-6xl mb-4 animate-bounce">📖</div>
+            <p class="text-purple-300 font-medium">Fin de l'histoire... pour l'instant</p>
+          </div>
+          
+          <button id="restart-btn" class="mt-8 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 border border-purple-500 hover:border-purple-400">
+            Relire le livre
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
 </Layout>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animation d'entrée avec effet plus dramatique
+  gsap.fromTo('#book-cover', {
+    scale: 0.8,
+    opacity: 0,
+    rotationY: -30
+  }, {
+    scale: 1,
+    opacity: 1,
+    rotationY: 0,
+    duration: 1.5,
+    ease: 'power3.out',
+    delay: 0.5
+  });
+
+  // Animation des pages au scroll
+  const pages = document.querySelectorAll('.page');
+  
+  pages.forEach((page, index) => {
+    gsap.fromTo(page, {
+      opacity: 0,
+      y: 100,
+      rotationX: 15
+    }, {
+      opacity: 1,
+      y: 0,
+      rotationX: 0,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: page,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+
+    // Animation des éléments de la page
+    const pageContent = page.querySelector('.page-content');
+    const pageIllustration = page.querySelector('.page-illustration');
+    
+    if (pageContent) {
+      gsap.fromTo(pageContent.children, {
+        opacity: 0,
+        x: -50
+      }, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: pageContent,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    }
+    
+    if (pageIllustration) {
+      gsap.fromTo(pageIllustration, {
+        opacity: 0,
+        scale: 0.8,
+        rotationY: 30
+      }, {
+        opacity: 1,
+        scale: 1,
+        rotationY: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: pageIllustration,
+          start: 'top 70%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    }
+  });
+
+  // Animation des cartes au hover avec effet plus intense
+  const cards = document.querySelectorAll('.floating-card, .tech-card, .hobby-item');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, {
+        scale: 1.05,
+        rotationY: 5,
+        y: -10,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        scale: 1,
+        rotationY: 0,
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    });
+  });
+
+  // Animation des badges de compétences
+  const skillBadges = document.querySelectorAll('.skill-badge');
+  gsap.fromTo(skillBadges, {
+    opacity: 0,
+    scale: 0
+  }, {
+    opacity: 1,
+    scale: 1,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: '.skill-badge',
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+
+  // Animation parallax subtile
+  gsap.to('.page-illustration', {
+    yPercent: -20,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.page-illustration',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  // Bouton de redémarrage
+  document.getElementById('restart-btn')?.addEventListener('click', () => {
+    gsap.to(window, {
+      scrollTo: { y: 0 },
+      duration: 1.5,
+      ease: 'power2.inOut'
+    });
+  });
+
+  // Animation de la couverture au scroll avec effet plus dramatique
+  ScrollTrigger.create({
+    trigger: '#cover',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: 1,
+    onUpdate: (self) => {
+      const progress = self.progress;
+      gsap.to('#book-cover', {
+        rotationY: progress * -90,
+        z: progress * -200,
+        scale: 1 - progress * 0.2,
+        duration: 0.1
+      });
+    }
+  });
+
+  // Animation des éléments de hobby au scroll
+  const hobbyItems = document.querySelectorAll('.hobby-item');
+  hobbyItems.forEach((item, index) => {
+    gsap.fromTo(item, {
+      opacity: 0,
+      scale: 0.8,
+      rotationX: 30
+    }, {
+      opacity: 1,
+      scale: 1,
+      rotationX: 0,
+      duration: 0.6,
+      delay: index * 0.1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+  });
+</script>
+
+<style>
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .book-cover {
+    transform-style: preserve-3d;
+  }
+  
+  .page {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Effet de survol pour les cartes avec thème sombre */
+  .floating-card, .tech-card, .hobby-item {
+    transition: all 0.3s ease;
+  }
+  
+  .floating-card:hover, .tech-card:hover, .hobby-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.25);
+  }
+  
+  /* Animation de pulsation pour les éléments de valeur */
+  .value-item:hover {
+    transform: translateX(10px);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Effet de glow subtil */
+  .hobby-item:hover {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.3);
+  }
+  
+  /* Animation des points décoratifs */
+  @keyframes glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+</style>
