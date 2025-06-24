@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeroText from '../components/HeroText.astro';
 import BookCover from '../components/BookCover.astro';
+import { Image } from 'astro:assets';
 ---
 
 <Layout title="Ma Présentation - Livre Interactif">
@@ -63,35 +64,12 @@ import BookCover from '../components/BookCover.astro';
       <!-- Page 2: Technologie -->
       <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-slate-800">
         <div class="max-w-6xl mx-auto">
-          <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="page-illustration order-2 lg:order-1">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-lg lg:max-w-none mx-auto">
-                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
-                  <div class="text-2xl sm:text-3xl mb-2">💻</div>
-                  <h4 class="font-semibold text-white text-sm sm:text-base">Frontend</h4>
-                  <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">Quasar, Vue, Express, Astro, Tailwind</p>
-                </div>
-                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
-                  <div class="text-2xl sm:text-3xl mb-2">🚀</div>
-                  <h4 class="font-semibold text-white text-sm sm:text-base">Animation</h4>
-                  <p class="text-xs sm:text-sm text-gray-400">GSAP, CSS3</p>
-                </div>
-                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
-                  <div class="text-2xl sm:text-3xl mb-2">🎨</div>
-                  <h4 class="font-semibold text-white text-sm sm:text-base">Design</h4>
-                  <p class="text-xs sm:text-sm text-gray-400">UX/UI moderne</p>
-                </div>
-                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300">
-                  <div class="text-2xl sm:text-3xl mb-2">⚡</div>
-                  <h4 class="font-semibold text-white text-sm sm:text-base">Performance</h4>
-                  <p class="text-xs sm:text-sm text-gray-400">Optimisation web</p>
-                </div>
-              </div>
-            </div>
-            <div class="page-content space-y-4 sm:space-y-6 order-1 lg:order-2">
+          <div class="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <!-- Contenu textuel d'abord sur mobile -->
+            <div class="page-content space-y-4 sm:space-y-6 order-1 lg:order-2 w-full">
               <div class="page-number text-blue-400 font-mono text-xs sm:text-sm">Page 02</div>
               <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">Développeur Web</h2>
-              <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+              <p class="text-base sm:text-lg text-gray-300 leading-relaxed mb-6">
                 Ce que j'aime c'est répondre à des besoins par des expériences web 
                 qui allient performance et créativité. Chaque projet est une nouvelle 
                 aventure technique à explorer. J'aime le challenge et le travail en équipe.
@@ -111,16 +89,42 @@ import BookCover from '../components/BookCover.astro';
                 </li>
               </ul>
             </div>
+            
+            <!-- Cartes technologiques ensuite -->
+            <div class="page-illustration order-2 lg:order-1 w-full mt-8 lg:mt-0">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl lg:max-w-none mx-auto">
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300 min-h-[120px] flex flex-col">
+                  <div class="text-2xl sm:text-3xl mb-3">💻</div>
+                  <h4 class="font-semibold text-white text-base sm:text-lg mb-2">Frontend</h4>
+                  <p class="text-sm sm:text-base text-gray-400 leading-relaxed flex-grow">Quasar, Vue, Express, Astro, Tailwind</p>
+                </div>
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300 min-h-[120px] flex flex-col">
+                  <div class="text-2xl sm:text-3xl mb-3">🚀</div>
+                  <h4 class="font-semibold text-white text-base sm:text-lg mb-2">Animation</h4>
+                  <p class="text-sm sm:text-base text-gray-400 leading-relaxed flex-grow">GSAP, CSS3</p>
+                </div>
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300 min-h-[120px] flex flex-col">
+                  <div class="text-2xl sm:text-3xl mb-3">🎨</div>
+                  <h4 class="font-semibold text-white text-base sm:text-lg mb-2">Design</h4>
+                  <p class="text-sm sm:text-base text-gray-400 leading-relaxed flex-grow">UX/UI moderne</p>
+                </div>
+                <div class="tech-card bg-gray-800/80 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg border border-gray-600 hover:border-gray-500 transition-all duration-300 min-h-[120px] flex flex-col">
+                  <div class="text-2xl sm:text-3xl mb-3">⚡</div>
+                  <h4 class="font-semibold text-white text-base sm:text-lg mb-2">Performance</h4>
+                  <p class="text-sm sm:text-base text-gray-400 leading-relaxed flex-grow">Optimisation web</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- Page 3: Transition - La vie au-delà du code -->
-      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden">
+      <section class="page min-h-screen flex items-center justify-center py-12 sm:py-16 lg:py-20 px-8 sm:px-8 lg:px-8 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 relative overflow-hidden">
         <!-- Particules flottantes de transition (masquées sur mobile) -->
         <div class="floating-particles absolute inset-0 pointer-events-none hidden sm:block">
           <div class="absolute top-20 left-20 text-cyan-400 text-lg opacity-30 font-mono animate-float">function</div>
-          <div class="absolute top-40 right-32 text-cyan-400 text-lg opacity-30 font-mono animate-float-delayed">< /dev ></div>
+          <div class="absolute top-40 right-32 text-cyan-400 text-lg opacity-30 font-mono animate-float-delayed">&lt; /dev &gt;</div>
           <div class="absolute bottom-32 left-32 text-cyan-400 text-lg opacity-30 font-mono animate-float-slow">function()</div>
           <div class="absolute top-32 right-20 text-yellow-400 text-xl sm:text-2xl opacity-40 animate-bounce-slow">🎸</div>
           <div class="absolute bottom-40 right-40 text-purple-400 text-xl sm:text-2xl opacity-40 animate-bounce-delayed">📚</div>
@@ -130,14 +134,14 @@ import BookCover from '../components/BookCover.astro';
           <div class="absolute top-1/3 right-1/3 text-yellow-400 text-lg sm:text-xl opacity-50 animate-sparkle">✨</div>
         </div>
         
-        <div class="max-w-5xl mx-auto text-center relative z-10">
+        <div class="max-w-5xl mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
           <div class="page-number text-cyan-400 font-mono text-xs sm:text-sm mb-6 sm:mb-8">Page 03</div>
           
           <!-- Animation de transition du code vers la vie -->
           <div class="transition-container space-y-8 sm:space-y-12">
             <!-- Phase 1: Fermeture du code -->
             <div class="code-phase opacity-100 transform transition-all duration-1000">
-              <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-cyan-400 mb-3 sm:mb-4 font-mono leading-tight">
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-cyan-400 mb-3 sm:mb-4 font-mono leading-tight px-4 sm:px-0">
                 <span class="typing-text">console.log('work_complete');</span>
               </h2>
               <div class="text-base sm:text-lg lg:text-xl text-gray-400 font-mono mb-6 sm:mb-8">
@@ -161,10 +165,10 @@ import BookCover from '../components/BookCover.astro';
             
             <!-- Phase 2: Ouverture vers la vie -->
             <div class="life-phase">
-              <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent mb-4 sm:mb-6 leading-tight">
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-indigo-200 bg-clip-text text-transparent mb-4 sm:mb-6 leading-tight px-4 sm:px-0">
                 Mais la vie, c'est bien plus que ça...
               </h2>
-              <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed mb-6 sm:mb-8 max-w-4xl mx-auto">
+              <p class="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-300 leading-relaxed mb-6 sm:mb-8 max-w-4xl mx-auto px-4 sm:px-0">
                 Quand l'écran s'éteint et que le clavier se tait, 
                 <br class="hidden sm:block">
                 c'est là que commence vraiment l'aventure ! 
@@ -260,7 +264,7 @@ import BookCover from '../components/BookCover.astro';
         
         <div class="max-w-6xl mx-auto">
           <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div class="page-content space-y-4 sm:space-y-6 order-2 lg:order-1">
+            <div class="page-content space-y-4 sm:space-y-6 order-1 lg:order-1">
               <div class="page-number text-orange-400 font-mono text-xs sm:text-sm">Page 05</div>
               <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
                 Un petit secret... 🤫
@@ -295,7 +299,7 @@ import BookCover from '../components/BookCover.astro';
               </div>
             </div>
             
-            <div class="page-illustration order-1 lg:order-2 mb-6 lg:mb-0">
+            <div class="page-illustration order-2 lg:order-2 mb-6 lg:mb-0">
             <div class="video-showcase bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-orange-600/50">
               <h3 class="text-xl font-semibold text-orange-300 mb-4 text-center">
                 La preuve en vidéo ! 🎬
@@ -310,6 +314,7 @@ import BookCover from '../components/BookCover.astro';
                   frameborder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
+                  loading="lazy"
                   allowfullscreen>
                 </iframe>
               </div>
@@ -471,11 +476,14 @@ import BookCover from '../components/BookCover.astro';
             <div class="conductor-showcase relative">
               <!-- Image de Jérôme -->
               <div class="relative group">
-                <img 
+                <Image 
                   src="/images/chefOrchestre.png" 
                   alt="Jérôme - Notre Chef d'Orchestre" 
                   class="w-full h-auto rounded-2xl shadow-2xl border-4 border-blue-800/50 transform transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-600/70 bg-gray-900/20 backdrop-blur-sm"
-                >
+                  loading="lazy"
+                  width={400}
+                  height={300}
+                />
                 
                 <!-- Overlay musical -->
                 <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -582,11 +590,14 @@ import BookCover from '../components/BookCover.astro';
             <div class="band-showcase relative">
               <!-- Image de l'équipe -->
               <div class="relative group">
-                <img 
+                <Image 
                   src="/images/ArnaudAndTheComparses.jpg" 
                   alt="Arnaud And The Comparses - L'équipe rock" 
                   class="w-full h-auto rounded-2xl shadow-2xl border-4 border-pink-800/50 transform transition-all duration-500 group-hover:scale-105 group-hover:border-pink-600/70"
-                >
+                  loading="lazy"
+                  width={400}
+                  height={300}
+                />
                 
                 <!-- Overlay avec effet vinyle -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -704,11 +715,14 @@ import BookCover from '../components/BookCover.astro';
             <div class="twirling-showcase relative">
               <!-- Image de Claire -->
               <div class="relative group">
-                <img 
+                <Image 
                   src="/images/Claire.jpg" 
                   alt="Claire - La Virtuose du Twirling Baton" 
                   class="w-full h-auto rounded-2xl shadow-2xl border-4 border-rose-800/50 transform transition-all duration-500 group-hover:scale-105 group-hover:border-pink-600/70"
-                >
+                  loading="lazy"
+                  width={400}
+                  height={300}
+                />
                 
                 <!-- Overlay artistique -->
                 <div class="absolute inset-0 bg-gradient-to-t from-rose-900/60 via-transparent to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -907,22 +921,42 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     }
     
     if (pageIllustration) {
-      gsap.fromTo(pageIllustration, {
-        opacity: 0,
-        scale: 0.8,
-        rotationY: 30
-      }, {
-        opacity: 1,
-        scale: 1,
-        rotationY: 0,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: pageIllustration,
-          start: 'top 70%',
-          toggleActions: 'play none none reverse'
-        }
-      });
+      // Animation différente pour la Page 2 (cartes tech) vs autres pages
+      const isPage2 = pageIllustration.querySelector('.tech-card');
+      
+      if (isPage2) {
+        // Animation simple pour Page 2 - pas de rotation ni scale pour éviter les problèmes
+        gsap.fromTo(pageIllustration, {
+          opacity: 0
+        }, {
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: pageIllustration,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      } else {
+        // Animation normale pour les autres pages
+        gsap.fromTo(pageIllustration, {
+          opacity: 0,
+          scale: 0.8,
+          rotationY: 30
+        }, {
+          opacity: 1,
+          scale: 1,
+          rotationY: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: pageIllustration,
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+      }
     }
   });
 
@@ -931,11 +965,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   cards.forEach(card => {
     card.addEventListener('mouseenter', () => {
       gsap.to(card, {
-        scale: 1.05,
-        rotationY: 5,
-        y: -10,
+        scale: 1.02,
+        rotationY: 2,
+        y: 0, // CHANGÉ : pas de déplacement vertical pour éviter les chevauchements
+        z: 10,
         duration: 0.3,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        transformOrigin: 'center center',
+        force3D: true
       });
     });
     
@@ -944,9 +981,36 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
         scale: 1,
         rotationY: 0,
         y: 0,
+        z: 0,
         duration: 0.3,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        transformOrigin: 'center center',
+        force3D: true
       });
+    });
+  });
+
+  // Animation spécifique pour les cartes tech (Page 2) au scroll
+  const techCards = document.querySelectorAll('.tech-card');
+  techCards.forEach((card, index) => {
+    gsap.fromTo(card, {
+      opacity: 0,
+      y: 20, // RÉDUIT : moins de mouvement vertical pour éviter les chevauchements
+      scale: 0.98 // RÉDUIT : moins de scale pour éviter les débordements
+    }, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.5, // RÉDUIT : animation plus courte
+      delay: index * 0.05, // RÉDUIT : délai plus court
+      ease: 'power2.out',
+      force3D: false, // CHANGÉ : pas de force3D pour éviter les problèmes de layout
+      transformOrigin: 'center center',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 90%', // CHANGÉ : trigger plus tard pour éviter les animations prématurées
+        toggleActions: 'play none none reverse'
+      }
     });
   });
 
@@ -968,17 +1032,31 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     }
   });
 
-  // Animation parallax subtile
-  gsap.to('.page-illustration', {
-    yPercent: -20,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.page-illustration',
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true
-    }
-  });
+  // Animation parallax subtile - DÉSACTIVÉE pour éviter les chevauchements
+  // gsap.to('.page-illustration', {
+  //   yPercent: -20,
+  //   ease: 'none',
+  //   scrollTrigger: {
+  //     trigger: '.page-illustration',
+  //     start: 'top bottom',
+  //     end: 'bottom top',
+  //     scrub: true
+  //   }
+  // });
+
+  // Animation parallax SEULEMENT sur desktop pour éviter les problèmes mobiles
+  if (window.innerWidth >= 1024) {
+    gsap.to('.page-illustration:not(.page-illustration .grid)', {
+      yPercent: -10,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.page-illustration',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  }
 
   // Bouton de redémarrage
   document.getElementById('restart-btn')?.addEventListener('click', () => {
@@ -1103,11 +1181,89 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   /* Effet de survol pour les cartes avec thème sombre */
   .floating-card, .tech-card, .hobby-item {
     transition: all 0.3s ease;
+    /* Préserver le layout après animations GSAP */
+    position: relative;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform;
   }
-  
+
+  /* Styles spécifiques pour les cartes tech pour éviter les chevauchements */
+  .tech-card {
+    /* Forcer le maintien de la structure flexbox */
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 120px !important;
+    /* Éviter les débordements après animations */
+    overflow: hidden;
+    /* Isolation pour les transformations 3D */
+    isolation: isolate;
+    /* Préserver l'espace dans le flow même avec transforms */
+    contain: layout style;
+  }
+
+  /* Container des cartes tech pour stabiliser le layout */
+  .page-illustration .grid {
+    /* Stabiliser la grille pendant les animations */
+    position: relative;
+    z-index: 1;
+    /* Isolation du contexte de transformation */
+    transform-style: preserve-3d;
+  }
+
   .floating-card:hover, .tech-card:hover, .hobby-item:hover {
-    transform: translateY(-5px);
+    /* Utiliser transform au lieu de repositionnement */
+    transform: translateY(-5px) translateZ(10px);
     box-shadow: 0 25px 50px -12px rgba(147, 51, 234, 0.25);
+    /* Assurer que le hover n'affecte pas le layout */
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Correction spécifique pour les animations GSAP des cartes tech */
+  .tech-card[style*="transform"] {
+    /* Maintenir la structure flexbox même avec transforms GSAP */
+    display: flex !important;
+    flex-direction: column !important;
+    /* Préserver les dimensions minimales */
+    min-height: 120px !important;
+    /* Éviter les débordements */
+    contain: layout style;
+  }
+
+  /* Section Page 2 - stabilisation spécifique */
+  section:nth-child(2) .page-illustration {
+    /* Stabiliser le conteneur des cartes tech */
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
+  }
+
+  section:nth-child(2) .tech-card {
+    /* Double sécurité pour les cartes de la page 2 */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    min-height: 120px !important;
+    max-height: none !important;
+    /* Éviter les transformations qui cassent le layout */
+    transform-origin: center center;
+    backface-visibility: hidden;
+  }
+
+  /* Grille responsive stable pour Page 2 */
+  section:nth-child(2) .grid {
+    /* Assurer la stabilité de la grille */
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  @media (min-width: 640px) {
+    section:nth-child(2) .grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 1.5rem !important;
+    }
   }
   
   /* Animation de pulsation pour les éléments de valeur */
@@ -1255,4 +1411,61 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
+  .tech-card {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 120px !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  contain: layout style !important;
+  isolation: isolate !important;
+  transform-origin: center center !important;
+  backface-visibility: hidden !important;
+}
+
+/* Container de la grille - stabilisation */
+.page-illustration .grid {
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  gap: 1rem !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+@media (min-width: 640px) {
+  .page-illustration .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Reset des transforms après animations GSAP */
+.tech-card[style*="opacity: 1"] {
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Hover states sans GSAP */
+.tech-card:hover {
+  transform: translateY(-5px) scale(1.02) !important;
+  z-index: 10 !important;
+  position: relative !important;
+}
+
+/* Section Page 2 spécifique */
+section:nth-child(2) .tech-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: 120px !important;
+  transform-style: flat !important;
+}
+
+/* Conteneur stable */
+section:nth-child(2) .page-illustration {
+  transform-style: flat !important;
+  contain: layout !important;
+}
+
 </style>
